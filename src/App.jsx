@@ -9,7 +9,6 @@ export default function App(){
     <>
     <AppDataProvider>
     <Header />
-    <SearchBar />
     <Main />
     </AppDataProvider>
     </>

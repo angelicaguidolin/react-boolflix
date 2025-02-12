@@ -4,8 +4,9 @@ import axios from "axios";
 export default function SearchBar(){
 const [search, setSearch]= useState([])
 const { setMovies } = useAppDataContext()
-const handleSearch=(e)=>{
-    e.prevetDeafault();
+const handleSearch = (e) => {
+    e.preventDefault();
+
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
@@ -15,13 +16,19 @@ const handleSearch=(e)=>{
         },
       })
       .then((res) => setMovies(res.data.results));
-}
+  };
 return(
-    <>
+    
     <form onSubmit={handleSearch}>
-        <input type="search" placeholder="digita il titolo" value={search} onChange={(e)=>setSearch(e.target.value)} />
-        <button type="submit">Cerca</button>
-    </form>
-    </>
+    <input
+      name="search"
+      type="search"
+      placeholder="digita il titolo..."
+      value={search}
+      onChange={(e) => setSearch(e.target.value)}
+    />
+    <button type="submit">Cerca</button>
+  </form>
+    
 )
 }
