@@ -7,7 +7,13 @@ export default function Main() {
         <h2>Lista Films</h2>
         <ul>
           {movies.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
+            <li key={movie.id}>{movie.title}
+            <ul>
+                <li>{movie.original_language}</li>
+                <li>{movie.original_title}</li>
+                <li>{movie.vote_average}</li>
+            </ul>
+            </li>
           ))}
         </ul>
       </main>
