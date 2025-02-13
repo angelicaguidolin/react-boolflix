@@ -9,7 +9,7 @@ export default function Main() {
           {movies.map((movie) => (
             <li key={movie.id}>{movie.title}
             <ul>
-                <li>{movie.original_language}</li>
+                <li>lingua:<img src={movie.flag} width="30"/></li>
                 <li>{movie.original_title}</li>
                 <li>{movie.vote_average}</li>
             </ul>

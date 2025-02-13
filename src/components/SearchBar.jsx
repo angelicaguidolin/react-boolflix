@@ -4,20 +4,33 @@ import axios from "axios";
 export default function SearchBar(){
 const [search, setSearch]= useState([])
 const { setMovies } = useAppDataContext()
+const flagAPI="https://flagcdn.com/w320"
+
 const handleSearch = (e) => {
     e.preventDefault();
 
     axios
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
-          api_key: "e99307154c6dfb0b4750f6603256716d",
+          api_key: "cecf721b5ffa9cf6f3534e54060b5d9c",
           language: "it-IT",
           query: search,
         },
       })
-      .then((res) => setMovies(res.data.results));
+      .then((res) => {
+        const movies= res.data.results;
+        const languageFlag=movies.map((movie)=>({
+          ...movie, flag:`${flagAPI}/${movie.original_language}.png`,
+        }));
+        setMovies(languageFlag)
+      });
+
+    
+     
+      
   };
-return(
+ 
+  return(
     
     <form onSubmit={handleSearch}>
     <input
