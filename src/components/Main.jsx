@@ -7,7 +7,8 @@ export default function Main() {
         <h2>Lista Films</h2>
         <ul>
           {movies.map((movie) => (
-            <li key={movie.id}>{movie.title}
+            <li key={movie.id}>
+              <strong>{movie.title}</strong> ({movie.type})
             <ul>
                 <li>lingua:<img src={movie.flag} width="30"/></li>
                 <li>{movie.original_title}</li>
