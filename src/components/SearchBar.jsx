@@ -5,8 +5,9 @@ import axios from "axios";
 export default function SearchBar() {
   const [search, setSearch] = useState("");
   const { setMovies } = useAppDataContext();
-  const flagAPI = "https://flagcdn.com/w320";
+  const flagAPI = "https://flagcdn.com/w300";
   const apiKey = "cecf721b5ffa9cf6f3534e54060b5d9c";
+  const imageCard= "https://image.tmdb.org/t/p/w500/"
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -34,6 +35,7 @@ export default function SearchBar() {
           type: "Film",
           title: movie.title,
           flag: `${flagAPI}/${movie.original_language}.png`,
+          image: `${imageCard}/${movie.poster_path}`
         }));
 
         const series = seriesRes.data.results.map((serie) => ({
@@ -41,9 +43,10 @@ export default function SearchBar() {
           type: "Serie TV",
           title: serie.name,
           flag: `${flagAPI}/${serie.original_language}.png`,
+          image: `${imageCard}/${serie.poster_path}`
         }));
 
-        setMovies([...movies, ...series]); // Unisce i risultati e li salva nello stato
+        setMovies([...movies, ...series]); 
       })
       .catch((error) => {
         console.error("Errore durante la ricerca:", error);

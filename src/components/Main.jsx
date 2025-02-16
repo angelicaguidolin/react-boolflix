@@ -8,8 +8,9 @@ export default function Main() {
         <ul>
           {movies.map((movie) => (
             <li key={movie.id}>
-              <strong>{movie.title}</strong> ({movie.type})
+              <h3>{movie.title}</h3> {movie.type}
             <ul>
+                <li><img src={movie.poster_path} alt={movie.title} width="100" /></li>
                 <li>lingua:<img src={movie.flag} width="30"/></li>
                 <li>{movie.original_title}</li>
                 <li>{movie.vote_average}</li>
