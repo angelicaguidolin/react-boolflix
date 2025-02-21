@@ -5,9 +5,9 @@ import axios from "axios";
 export default function SearchBar() {
   const [search, setSearch] = useState("");
   const { setMovies } = useAppDataContext();
-  const flagAPI = "https://flagcdn.com/w300";
+  const flagAPI = "https://flagcdn.com/w320";
   const apiKey = "cecf721b5ffa9cf6f3534e54060b5d9c";
-  const imageCard= "https://image.tmdb.org/t/p/w500/"
+  const imageCard= "https://image.tmdb.org/t/p/w320/"
 
   const handleSearch = (e) => {
     e.preventDefault();
